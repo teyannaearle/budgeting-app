@@ -39,7 +39,7 @@ function Edit({updateTransaction}) {
     }
 
     const handleCancel = () => {
-      history.push(`/transactions`)
+      history.push(`/transactions/${id}`)
     }
 
     return (
