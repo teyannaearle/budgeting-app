@@ -5,7 +5,6 @@ import Index from "./pages/Index"
 import Edit from "./pages/Edit"
 import NavBar from "./components/NavBar"
 import NotFound from './pages/NotFound';
-import Footer from './components/Footer';
 import ShowTransaction from './pages/ShowTransaction';
 import axios from "axios"
 import { apiURL} from "./util/apiURL"
@@ -24,8 +23,18 @@ function App() {
     })
   }, []);
 
+
+  // const addTransaction = (newTransaction) => {
+  //   axios.post(`${API}/transactions`, newTransaction)
+  //   .then((response) => {
+  //     setTransactions([...transactions, newTransaction])
+  //   })
+  //   .catch((error) => console.log(error))
+  // }
+
+
   const addTransaction = (newTransaction) => {
-    axios.post( `${API}/transactions`, newTransaction)
+    axios.post(`${API}/transactions`, newTransaction)
     .then((response) => {
       setTransactions([...transactions, newTransaction])
     })

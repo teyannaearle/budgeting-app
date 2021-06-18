@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { apiURL } from '../util/apiURL';
 import { useState, useEffect } from 'react';
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 
 const API = apiURL();
@@ -35,7 +35,11 @@ function Edit({updateTransaction}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         updateTransaction(transaction, id)
-        history.push(`/transactions/${id}`)
+        history.push(`/transactions`)
+    }
+
+    const handleCancel = () => {
+      history.push(`/transactions`)
     }
 
     return (
@@ -47,11 +51,12 @@ function Edit({updateTransaction}) {
           <label htmlFor="name">Name</label>
           <input type="text" id="name" value={transaction.name} onChange={handleInput} placeholder="Name" required/>
           <label htmlFor="from">From</label>
-          <input type="text" id="from" value={transaction.from} onChange={handleInput} placeholder="From/To" required/>
+          <input type="text" id="from" value={transaction.from} onChange={handleInput} placeholder="From" required/>
           <label htmlFor="amount">Amount</label>
           <input type="number" id="amount" value={transaction.amount} onChange={handleNumInput} required/>
           <input type="submit" className="button submit"/>
         </form>
+        <button className="button submit" onClick={handleCancel}>Cancel</button>
       </>
     )
 }

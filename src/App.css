@@ -30,7 +30,8 @@ a{
 #nav{
   width: 100%;
   background-color: #20368f;
-  height: 10%;
+  /* height: 10%; */
+  height:80px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -73,12 +74,13 @@ ul{
 }
 
 #chart{
-  width: 60%;
+  width:max-content;
   display: grid;
   border: 2px solid #20368f;;
   /* color: ivory; */
   font-weight: 700;
   background-color: rgb(230, 230, 215);
+  /* overflow: hidden; */  
 }
 
 .list-item{
