@@ -24,9 +24,13 @@ function App() {
   }, []);
 
   const addTransaction = (newTransaction) => {
-    axios.post(`${API}/transactions`, newTransaction)
+    let id = 0
+    if (transactions[0]){
+      id = transactions[transactions.length -1].id + 1
+    }
+    axios.post(`${API}/transactions`, {id: id, ...newTransaction})
     .then((response) => {
-      setTransactions([...transactions, newTransaction])
+      setTransactions([...transactions, {id:id, ...newTransaction}])
     })
     .catch((error) => console.log(error))
   }
@@ -54,11 +58,11 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route path="/transactions/new"> <New addTransaction={addTransaction}/> </Route>
+        <Route path="/transactions/new"> <New addTransaction={addTransaction} transactions={transactions}/> </Route>
         <Route path="/transactions/:id/update"> <Edit updateTransaction={updateTransaction} /></Route>
         <Route path="/transactions/:id"> <ShowTransaction transactions={transactions} deleteTransaction={deleteTransaction}/></Route>
         <Route path="/transactions"> <Index transactions={transactions}/> </Route>
-        <Route path="/"> <Home /> </Route>
+        <Route exact path="/"> <Home /> </Route>
         <Route path="*"> <NotFound /> </Route>
       </Switch>
     </div>

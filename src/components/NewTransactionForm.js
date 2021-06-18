@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
-import axios  from 'axios';
-import { apiURL } from '../util/apiURL';
-
-const API = apiURL()
 
 function NewTransactionForm({addTransaction}) {
     let history = useHistory();
@@ -14,18 +10,7 @@ function NewTransactionForm({addTransaction}) {
         amount: 0,
     })
 
-    useEffect(()=>{
-        axios.get(`${API}/transactions`).then((response) => {
-         const { data } = response
-         if (data[0]){
-             let id = data[data.length -1].id + 1
-             setTransaction({id: id, ...transaction})
-         } else{
-            setTransaction({id: 0, ...transaction})
-         }
-        })
-    },[transaction])
-
+    
     const handleInput = (e) => {
         setTransaction({...transaction, [e.target.id]: e.target.value})
     }

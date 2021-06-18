@@ -2,7 +2,7 @@ import React from 'react'
 import Transaction from './Transaction'
 
 function TransactionList({transactions}) {
-    
+
     return (
         <ul id="chart">
         <li className="list-item chart-title">
