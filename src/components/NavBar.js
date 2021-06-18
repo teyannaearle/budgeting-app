@@ -5,8 +5,8 @@ function NavBar() {
     return (
        <nav id="nav">
            <Link to="/" id="navHome">Budget<span className="er">(er)</span></Link> <br></br>
-           <Link to="/transactions">Transactions</Link> <br></br>
-           <Link to="/transactions/new">New Transaction</Link>
+           <Link to="/transactions" className="links">Transactions</Link> <br></br>
+           <Link to="/transactions/new" className="links">New Transaction</Link>
        </nav>
     )
 }

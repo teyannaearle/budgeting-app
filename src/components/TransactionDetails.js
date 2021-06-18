@@ -32,7 +32,9 @@ function TransactionDetails({deleteTransaction}) {
             <p>Transaction I.D: {transaction.id}</p>
             <h3>Date: {transaction.date}</h3>
             <p>{transaction.name} from {transaction.from}</p>
-            <p className={transaction.amount > 0 ? "positive" : "negative"} id="transaction-amount">${transaction.amount}</p> 
+            <p className={!transaction.negative ? "positive" : "negative"} id="transaction-amount"> 
+                {transaction.negative? `$ -${transaction.amount}`: `$ ${transaction.amount}`}
+            </p> 
             <Link to={`/transactions/${id}/update`}><button className="button">Update Transaction</button></Link>
             <button className="button" onClick={handleDelete}>Delete Transaction</button>
             </div>

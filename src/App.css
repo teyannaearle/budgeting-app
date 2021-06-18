@@ -10,6 +10,13 @@ body, #root, .App{
   height: 100%;
 }
 
+.links {
+  padding-right: 5px;
+  padding-left: 5px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
 .App {
   display: flex;
   flex-direction: column;

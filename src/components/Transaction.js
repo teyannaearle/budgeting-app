@@ -10,7 +10,9 @@ function Transaction({transaction}) {
                 <Link to={`transactions/${transaction.id}`}><button id="view">View Transaction</button></Link>
             </p> 
             <p>{transaction.name}</p> 
-            <p className={transaction.amount > 0 ? "positive" : "negative"}>${transaction.amount}</p>
+            <p className={!transaction.negative ? "positive" : "negative"}>
+                {transaction.negative? `$ -${transaction.amount}`: `$ ${transaction.amount}`}
+            </p>
       
         </div>
     )

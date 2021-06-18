@@ -25,9 +25,11 @@ function App() {
 
   const addTransaction = (newTransaction) => {
     let id = 0
+
     if (transactions[0]){
       id = transactions[transactions.length -1].id + 1
     }
+
     axios.post(`${API}/transactions`, {id: id, ...newTransaction})
     .then((response) => {
       setTransactions([...transactions, {id:id, ...newTransaction}])
@@ -49,11 +51,13 @@ function App() {
     axios.put(`${API}/transactions/${id}`, updatedTransaction)
     .then(
       (response) => {
+        console.log(response.data)
         setTransactions(response.data);
       })
     .catch((error) => {console.log(error)})
 
   };
+
   return (
     <div className="App">
       <NavBar />
