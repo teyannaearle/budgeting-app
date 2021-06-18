@@ -28,16 +28,16 @@ function NewTransactionForm({addTransaction}) {
     }
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
           <label htmlFor="date">Date</label>
           <input type="date" id="date" value={transaction.date} onChange={handleInput} required/>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" value={transaction.name} onChange={handleInput} required/>
-          <label htmlFor="from">From</label>
-          <input type="text" id="from" value={transaction.from} onChange={handleInput} required/>
+          <input type="text" id="name" value={transaction.name} onChange={handleInput} placeholder="Name" required/>
+          <label htmlFor="from">From/To</label>
+          <input type="text" id="from" value={transaction.from} onChange={handleInput} placeholder="From/To" required/>
           <label htmlFor="amount">Amount</label>
           <input type="number" id="amount" value={transaction.amount} onChange={handleNumInput} required/>
-          <input type="submit" />
+          <input type="submit" className="button submit"/>
       </form>
     )
 }

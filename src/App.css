@@ -4,7 +4,7 @@
 }
 html{
   height: 100vh;
-}
+} 
 
 body, #root, .App{
   height: 100%;
@@ -132,8 +132,52 @@ li p{
 
 #transaction-details div{
   width: 60%;
-  height: 70%;
+  /* height: 70%; */
+  height: max-content;
   background-color: rgb(230, 230, 215);
+}
+
+.button{
+  background-color: #20368f;
+  border: 0px;
+  padding: 5px;
+  color: ivory;
+  margin: 10px;
+}
+
+#transaction-amount{
+  font-size: xx-large;
+}
+
+#transaction-card{
+  display: grid;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+form label{
+  margin:5px;
+}
+
+form input{
+  margin: 5px;
+  height: 20px;
+}
+
+.submit{
+  height: 30px
+}
+
+.header{
+  margin: 20px;
+}
+
+#update, #new{
+  width: 30%;
 }
 
 
