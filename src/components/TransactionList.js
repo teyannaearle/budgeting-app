@@ -2,12 +2,7 @@ import React from 'react'
 import Transaction from './Transaction'
 
 function TransactionList({transactions}) {
-    // const [transactionArray, setTransactions] = useState([])
-
-    // useEffect(() => {
-    //     setTransactions(transactions)
-    // }, [transactions])
-
+    
     return (
         <ul id="chart">
         <li className="list-item chart-title">

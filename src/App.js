@@ -23,16 +23,6 @@ function App() {
     })
   }, []);
 
-
-  // const addTransaction = (newTransaction) => {
-  //   axios.post(`${API}/transactions`, newTransaction)
-  //   .then((response) => {
-  //     setTransactions([...transactions, newTransaction])
-  //   })
-  //   .catch((error) => console.log(error))
-  // }
-
-
   const addTransaction = (newTransaction) => {
     axios.post(`${API}/transactions`, newTransaction)
     .then((response) => {
@@ -55,8 +45,6 @@ function App() {
     axios.put(`${API}/transactions/${id}`, updatedTransaction)
     .then(
       (response) => {
-        // const updatedArray = [...bookmarks];
-        // updateArray[index] =  updatedBookmark;
         setTransactions(response.data);
       })
     .catch((error) => {console.log(error)})
@@ -73,7 +61,6 @@ function App() {
         <Route path="/"> <Home /> </Route>
         <Route path="*"> <NotFound /> </Route>
       </Switch>
-      {/* <Footer /> */}
     </div>
   );
 }
