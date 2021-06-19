@@ -2,13 +2,6 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 function Transaction({transaction}) {
-    // const [amount, setAmount] = useState(0)
-
-    // useEffect(()=>{
-    //     // let fixed = transaction.amount.toFixed(2)
-    //     // setAmount(fixed)
-    //     console.log(transaction.amount.toFixed(2))
-    // }, [])
 
     return (
         <div className="list-item">
