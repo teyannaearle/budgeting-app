@@ -47,7 +47,7 @@ function NewTransactionForm({addTransaction}) {
           <label htmlFor="from">From</label>
           <input type="text" id="from" value={transaction.from} onChange={handleInput} placeholder="From" required/>
           <label htmlFor="amount">Amount</label>
-          <input type="number" id="amount" value={transaction.amount} onChange={handleNumInput} placeholder="0" min="0"required/>
+          <input type="number" id="amount" value={transaction.amount} onChange={handleNumInput} placeholder="0" min="0" step=".01" required/>
           <span>
               <input type="checkbox" onChange={handleCheckBox} checked={transaction.negative}/>
               <label htmlFor="checkbox">Check for negative dollar amount </label>       

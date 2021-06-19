@@ -20,7 +20,7 @@ function TransactionDetails({deleteTransaction, updatePressed, completeUpdate}) 
         }).catch((error) => {
             history.push("/not-found")
         })
-    }, [id, history, updatePressed])
+    }, [id, history, updatePressed, completeUpdate])
     
     const handleDelete = () => {
         deleteTransaction(id)

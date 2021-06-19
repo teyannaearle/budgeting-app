@@ -80,6 +80,7 @@ function Edit({ updateTransaction }) {
           id="amount"
           value={transaction.amount}
           onChange={handleNumInput}
+          step="0.1"
           min="0"
           required
         />

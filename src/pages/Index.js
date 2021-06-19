@@ -11,7 +11,7 @@ function Index({transactions}) {
     useEffect(()=> {
         axios.get(`${API}/transactions/sum`)
         .then(response => {
-            setSum(response.data)
+            setSum(response.data.toFixed(2))
         })
         .catch(error => console.log(error))
     }, [transactions])
