@@ -13,7 +13,7 @@ function Index({transactions}) {
         .then(response => {
             setSum(response.data)
         })
-    }, [])
+    }, [transactions])
 
     return ( 
     <div id="index">

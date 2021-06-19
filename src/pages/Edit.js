@@ -43,7 +43,7 @@ function Edit({ updateTransaction }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateTransaction(transaction, id);
-    history.push(`/transactions`);
+    history.push(`/transactions/${id}`);
   };
 
   const handleCancel = () => {
