@@ -13,6 +13,7 @@ function Index({transactions}) {
         .then(response => {
             setSum(response.data)
         })
+        .catch(error => console.log(error))
     }, [transactions])
 
     return ( 

@@ -84,10 +84,8 @@ ul{
   width:max-content;
   display: grid;
   border: 2px solid #20368f;;
-  /* color: ivory; */
   font-weight: 700;
   background-color: rgb(230, 230, 215);
-  /* overflow: hidden; */  
 }
 
 .list-item{
@@ -110,8 +108,6 @@ li p{
 
 .chart-title{
   font-size: larger;
-  /* font-weight: 700;
-  color: ivory; */
   color:#20368f;
 }
 
@@ -141,7 +137,6 @@ li p{
 
 #transaction-details div{
   width: 60%;
-  /* height: 70%; */
   height: max-content;
   background-color: rgb(230, 230, 215);
 }
@@ -187,6 +182,10 @@ form input{
 
 #update, #new{
   width: 30%;
+}
+
+#not-found{
+  margin: 40px;
 }
 
 

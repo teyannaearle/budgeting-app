@@ -10,7 +10,11 @@ function TransactionList({transactions}) {
             <p>&nbsp; Transaction &nbsp;</p>
             <p>Amount</p>
         </li>
-        {transactions.map(transaction =><li key={transaction.id}><Transaction transaction={transaction}/></li> )}
+        {transactions.map(transaction =>
+            <li key={transaction.id}>
+                <Transaction transaction={transaction}/>
+            </li> 
+        )}
         </ul>
     )
 }
