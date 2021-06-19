@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import TransactionList from '../components/TransactionList'
+import axios from "axios"
+import { apiURL } from "../util/apiURL"
 
-function Index({transactions}) {
-    const [sum, setSum] = useState(0)
+const API = apiURL()
 
-    useEffect(()=>{
-        setSum(transactions.map(transaction => transaction.amount).reduce((a,b) => a + b, 0))
-    }, [transactions])    
+function Index({transactions}) {  
+    const [sum, setSum] = useState((0))
+
+    useEffect(()=> {
+        axios.get(`${API}/transactions/sum`)
+        .then(response => {
+            setSum(response.data)
+        })
+    }, [])
 
     return ( 
     <div id="index">

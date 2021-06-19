@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     axios.get(`${API}/transactions`).then((response) => {
       const { data } = response 
-      setTransactions(data)
+      setTransactions(data)      
     })
   }, []);
 
@@ -29,7 +29,6 @@ function App() {
     if (transactions[0]){
       id = transactions[transactions.length -1].id + 1
     }
-
     axios.post(`${API}/transactions`, {id: id, ...newTransaction})
     .then((response) => {
       setTransactions([...transactions, {id:id, ...newTransaction}])
@@ -51,7 +50,6 @@ function App() {
     axios.put(`${API}/transactions/${id}`, updatedTransaction)
     .then(
       (response) => {
-        console.log(response.data)
         setTransactions(response.data);
       })
     .catch((error) => {console.log(error)})
@@ -65,7 +63,7 @@ function App() {
         <Route path="/transactions/new"> <New addTransaction={addTransaction} transactions={transactions}/> </Route>
         <Route path="/transactions/:id/update"> <Edit updateTransaction={updateTransaction} /></Route>
         <Route path="/transactions/:id"> <ShowTransaction transactions={transactions} deleteTransaction={deleteTransaction}/></Route>
-        <Route path="/transactions"> <Index transactions={transactions}/> </Route>
+        <Route path="/transactions"> <Index transactions={transactions} /> </Route>
         <Route exact path="/"> <Home /> </Route>
         <Route path="*"> <NotFound /> </Route>
       </Switch>

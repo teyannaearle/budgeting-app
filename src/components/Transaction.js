@@ -11,7 +11,7 @@ function Transaction({transaction}) {
             </p> 
             <p>{transaction.name}</p> 
             <p className={!transaction.negative ? "positive" : "negative"}>
-                {transaction.negative? `$ -${transaction.amount}`: `$ ${transaction.amount}`}
+                {transaction.negative? `$- ${transaction.amount}`: `$ ${transaction.amount}`}
             </p>
       
         </div>
