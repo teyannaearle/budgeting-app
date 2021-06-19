@@ -15,6 +15,10 @@ function TransactionDetails({deleteTransaction, updatePressed, completeUpdate}) 
         axios.get(`${API}/transactions/${id}`)
         .then((response) => {
             const { data } = response
+            // const copy = data
+            // copy.amount = copy.amount.toFixed(2)
+            data.amount = data.amount.toFixed(2)
+            // setTransaction(copy)
             setTransaction(data)
             completeUpdate()
         }).catch((error) => {

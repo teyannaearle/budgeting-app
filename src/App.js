@@ -35,6 +35,7 @@ function App() {
     if (transactions[0]) {
       id = transactions[transactions.length - 1].id + 1;
     }
+    
     axios
       .post(`${API}/transactions`, { id: id, ...newTransaction })
       .then((response) => {
