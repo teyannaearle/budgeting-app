@@ -15,13 +15,16 @@ const API = apiURL()
 
 function App() {
   const [transactions, setTransactions] = useState([])
+  const [updatePressed, setUpdatePressed] = useState(false)
 
   useEffect(() => {
     axios.get(`${API}/transactions`).then((response) => {
       const { data } = response 
       setTransactions(data)      
     })
+    .catch((error) => {console.log(error)})
   }, []);
+
 
   const addTransaction = (newTransaction) => {
     let id = 0
@@ -40,6 +43,7 @@ function App() {
     axios.delete(`${API}/transactions/${id}`)
     .then((response) => {
         setTransactions(response.data)
+        // setUpdatePressed(false)
       })
       .catch((error) => {console.log(error)})
   } 
@@ -50,11 +54,16 @@ function App() {
     axios.put(`${API}/transactions/${id}`, updatedTransaction)
     .then(
       (response) => {
+        setUpdatePressed(true)
         setTransactions(response.data);
       })
     .catch((error) => {console.log(error)})
 
   };
+
+  const completeUpdate = () => {
+    setUpdatePressed(false)
+  }
 
   return (
     <div className="App">
@@ -62,7 +71,7 @@ function App() {
       <Switch>
         <Route path="/transactions/new"> <New addTransaction={addTransaction} transactions={transactions}/> </Route>
         <Route path="/transactions/:id/update"> <Edit updateTransaction={updateTransaction} /></Route>
-        <Route path="/transactions/:id"> <ShowTransaction transactions={transactions} deleteTransaction={deleteTransaction}/></Route>
+        <Route path="/transactions/:id"> <ShowTransaction  deleteTransaction={deleteTransaction} updatePressed={updatePressed} completeUpdate={completeUpdate}/></Route>
         <Route path="/transactions"> <Index transactions={transactions} /> </Route>
         <Route exact path="/"> <Home /> </Route>
         <Route path="*"> <NotFound /> </Route>

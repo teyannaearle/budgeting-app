@@ -5,7 +5,7 @@ import { apiURL } from '../util/apiURL';
 
 const API = apiURL()
 
-function TransactionDetails({deleteTransaction}) {   
+function TransactionDetails({deleteTransaction, updatePressed, completeUpdate}) {   
     const [transaction, setTransaction] = useState([]) 
 
     let history = useHistory();
@@ -16,10 +16,11 @@ function TransactionDetails({deleteTransaction}) {
         .then((response) => {
             const { data } = response
             setTransaction(data)
+            completeUpdate()
         }).catch((error) => {
             history.push("/not-found")
         })
-    }, [id, history])
+    }, [id, history, updatePressed])
     
     const handleDelete = () => {
         deleteTransaction(id)

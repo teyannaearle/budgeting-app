@@ -1,10 +1,10 @@
 import React from 'react'
 import TransactionDetails from '../components/TransactionDetails';
 
-function ShowTransaction({deleteTransaction}) {
+function ShowTransaction({deleteTransaction, updatePressed, completeUpdate}) {
 
     return (
-        <TransactionDetails deleteTransaction={deleteTransaction}/>
+        <TransactionDetails deleteTransaction={deleteTransaction} updatePressed={updatePressed} completeUpdate={completeUpdate}/>
     )
 }
 
