@@ -11,7 +11,7 @@ function Transaction({transaction}) {
             </p> 
             <p>{transaction.name}</p> 
             <p className={!transaction.negative ? "positive" : "negative"}>
-                {transaction.negative? `$-${transaction.amount.toFixed(2)}`: `$ ${transaction.amount.toFixed(2)}`}
+                {transaction.negative? `$-${new Intl.NumberFormat().format(transaction.amount.toFixed(2))}`: `$ ${new Intl.NumberFormat().format(transaction.amount.toFixed(2))}`}
             </p>
       
         </div>

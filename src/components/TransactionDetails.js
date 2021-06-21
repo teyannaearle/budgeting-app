@@ -15,10 +15,7 @@ function TransactionDetails({deleteTransaction, updatePressed, completeUpdate}) 
         axios.get(`${API}/transactions/${id}`)
         .then((response) => {
             const { data } = response
-            // const copy = data
-            // copy.amount = copy.amount.toFixed(2)
             data.amount = data.amount.toFixed(2)
-            // setTransaction(copy)
             setTransaction(data)
             completeUpdate()
         }).catch((error) => {
@@ -38,7 +35,7 @@ function TransactionDetails({deleteTransaction, updatePressed, completeUpdate}) 
             <h3>Date: {transaction.date}</h3>
             <p>{transaction.name} from {transaction.from}</p>
             <p className={!transaction.negative ? "positive" : "negative"} id="transaction-amount"> 
-                {transaction.negative? `$ -${transaction.amount}`: `$ ${transaction.amount}`}
+                {transaction.negative? `$ -${transaction.amount}`: `$ ${new Intl.NumberFormat().format(transaction.amount)}`}
             </p> 
             <span>
             <Link to={`/transactions`}><button className="button">Back to transactions</button></Link>

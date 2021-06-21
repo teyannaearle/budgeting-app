@@ -19,7 +19,7 @@ function Index({transactions}) {
     return ( 
     <div id="index">
         <h1>Transactions </h1>
-        <h3>Total: <span className={sum > 0 ? "positive" : "negative"}>${sum.toFixed(2)}</span></h3>
+        <h3>Total: <span className={sum > 0 ? "positive" : "negative"}>${new Intl.NumberFormat().format(sum.toFixed(2))}</span></h3>
         <TransactionList transactions={transactions}/> 
     </div>
     )
