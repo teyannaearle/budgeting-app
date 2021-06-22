@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   const addTransaction = (newTransaction) => {
-    let id = 0;
+    let id = 23;
 
     if (transactions[0]) {
       id = transactions[transactions.length - 1].id + 1;
